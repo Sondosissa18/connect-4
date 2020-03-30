@@ -46,7 +46,8 @@ const displayCurrentPlayer = function(currPlayer) {
   displayMessage("Current player is " + currPlayer);
 };
 const displayWhoWon = function(winner) {
-  displayMessage("Winner is " + winner);
+  displayMessage("Winner is Player " + winner);
+  dissableEventListerners();
 };
 const displayTieMessage = function() {
   displayMessage("Tie game!");
@@ -177,9 +178,8 @@ const columnClickHandler = function(event) {
     displayTieMessage();
   } else {
     switchToNextPlayer();
+    displayCurrentPlayer(currentPlayer);
   }
-
-  displayCurrentPlayer(currentPlayer);
 };
 
 const createColumnEventListeners = function() {
@@ -193,7 +193,15 @@ const createColumnEventListeners = function() {
 };
 
 const displayBoard = function(boardModel) {};
-
+const dissableEventListerners = function() {
+  document.querySelector("#col0").style.pointerEvents = "none";
+  document.querySelector("#col1").style.pointerEvents = "none";
+  document.querySelector("#col2").style.pointerEvents = "none";
+  document.querySelector("#col3").style.pointerEvents = "none";
+  document.querySelector("#col4").style.pointerEvents = "none";
+  document.querySelector("#col5").style.pointerEvents = "none";
+  document.querySelector("#col6").style.pointerEvents = "none";
+};
 const initializeGame = function() {
   displayBoard(boardModel);
   createColumnEventListeners();
