@@ -79,13 +79,13 @@ const dropDiskIntoColumn = function(columnEl, board, playerNum) {
 };
 
 const winnerHorizontal = function(board) {
-  for (let row = 0; row < 3; row++) {
+  for (let row = 0; row < 6; row++) {
     for (let col = 0; col < board[row].length; col++) {
       // console.log(`${board[row][col]} ${board[row + 1][col]} ${board[row + 2][col]} ${board[row + 3][col]} `)
       if (
-        board[row][col] === board[row + 1][col] &&
-        board[row][col] === board[row + 2][col] &&
-        board[row][col] === board[row + 3][col] &&
+        board[row][col] === board[row][col + 1] &&
+        board[row][col] === board[row][col + 2] &&
+        board[row][col] === board[row][col + 3] &&
         board[row][col] !== null
       ) {
         return board[row][col];
